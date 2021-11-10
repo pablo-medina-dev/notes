@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "ng serve",
     "start:dist": "http-server dist/notes",
     "build": "ng build",
     "build:prod": "ng build --prod",
