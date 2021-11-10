@@ -3,11 +3,6 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Note, NoteRecord } from 'src/interfaces/Note';
 import { EditNoteDialogComponent } from '../edit-note-dialog/edit-note-dialog.component';
 
-const DUMMY_NOTES: Note[] = [
-  { title: 'Note 1', content: 'Test Note #1' },
-  { title: 'Sample note', content: 'Hello' }
-]
-
 const buildRecords = (notes: Note[]): NoteRecord[] => {
   const records: NoteRecord[] = [];
   let i = 0;
@@ -33,7 +28,9 @@ export class NotesListComponent implements OnInit {
   constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.notes = buildRecords(DUMMY_NOTES);
+    const notes: Note[] = [];
+
+    this.notes = buildRecords(notes);
     this.lastId = this.notes.length + 1;
   }
 
