@@ -1,0 +1,7 @@
+<p>Notes</p>
+
+<mat-selection-list>
+    <mat-list-option *ngFor="let note of notes" (click)="show(note)">
+        {{note.title}}
+    </mat-list-option>
+</mat-selection-list>
