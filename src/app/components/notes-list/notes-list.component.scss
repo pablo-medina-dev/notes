@@ -1,19 +1,18 @@
 :host {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    height: 100vh;
+    display: block;
 }
 
-.empty-list {
+.empty-list-message-container {
     display: flex;
-    flex: 1 1 auto;
-    flex-grow: 1;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
     align-items: center;
-    align-self: center;
+    justify-content: center;
+    p {
+        justify-content: center;
+    }
 }
 
 .notes-list {
@@ -33,7 +32,8 @@
 
 .note-card {
     margin: 1rem 0;
-    background-color: #fbfbfb;
+    color: #000;
+    background-color: #fefefe;
     .actions {
         display: flex;
         flex-direction: row;

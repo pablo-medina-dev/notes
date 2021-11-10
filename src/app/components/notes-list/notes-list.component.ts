@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
+import { StorageService } from 'src/app/services/storage.service';
 import { Note, NoteRecord } from 'src/interfaces/Note';
 import { EditNoteDialogComponent } from '../edit-note-dialog/edit-note-dialog.component';
 
@@ -16,6 +17,17 @@ const buildRecords = (notes: Note[]): NoteRecord[] => {
   return records;
 }
 
+const exportRecords = (records: NoteRecord[]): Note[] => {
+  const notes: Note[] = [];
+  records.forEach(record => {
+    notes.push({
+      title: record.title,
+      content: record.content
+    });
+  });
+  return notes;
+}
+
 @Component({
   selector: 'app-notes-list',
   templateUrl: './notes-list.component.html',
@@ -25,13 +37,23 @@ export class NotesListComponent implements OnInit {
   notes: NoteRecord[] = [];
   private lastId = 0;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private storageService: StorageService, private snackbar: MatSnackBar) { }
 
-  ngOnInit() {
-    const notes: Note[] = [];
+  async ngOnInit() {
+    await this.fetchNotes();
+  }
 
-    this.notes = buildRecords(notes);
-    this.lastId = this.notes.length + 1;
+  async fetchNotes() {
+    return this.storageService.getNotes()
+      .then(notes => {
+        this.notes = buildRecords(notes);
+        this.lastId = this.notes.length + 1;
+      })
+  }
+
+  async storeNotes() {
+    const notes = exportRecords(this.notes);
+    return this.storageService.setNotes(notes);
   }
 
   addNote() {
@@ -52,6 +74,7 @@ export class NotesListComponent implements OnInit {
           title: newNote.title,
           content: newNote.content
         });
+        this.storeNotes().then(() => { this.showMessage('Note added') });
       }
     });
   }
@@ -74,6 +97,7 @@ export class NotesListComponent implements OnInit {
         if (noteToUpdate) {
           noteToUpdate.title = updatedNote.title;
           noteToUpdate.content = updatedNote.content;
+          this.storeNotes().then(() => { this.showMessage('Note updated') });
         }
       }
     });
@@ -83,6 +107,11 @@ export class NotesListComponent implements OnInit {
     const indexToDelete = this.notes.findIndex(note => note.id == noteToDelete.id);
     if (indexToDelete >= 0) {
       this.notes.splice(indexToDelete, 1);
+      this.storeNotes().then(() => { this.showMessage('Note deleted') });
     }
+  }
+
+  showMessage(message: string) {
+    this.snackbar.open(message, 'OK', { duration: 1500 });
   }
 }

@@ -2,15 +2,16 @@
 
 <form [formGroup]="form" (ngSubmit)="save()">
     <mat-dialog-content>
-        <mat-form-field>
+        <mat-form-field appearance="fill">
             <mat-label>Title</mat-label>
-            <input matInput placeholder="Title" formControlName="title" autocomplete="off">
+            <input matInput placeholder="Enter title" formControlName="title" autocomplete="off">
             <mat-error *ngIf="form.hasError('required', 'username')">
                 Please enter a title
             </mat-error>
         </mat-form-field>
-        <mat-form-field>
-            <textarea cdkTextareaAutosize matInput placeholder="Content" formControlName="content" autocomplete="off"></textarea>
+        <mat-form-field appearance="fill">
+            <mat-label>Content</mat-label>
+            <textarea cdkTextareaAutosize matInput placeholder="Your note" formControlName="content" autocomplete="off"></textarea>
             <mat-error *ngIf="form.hasError('required', 'username')">
                 Content is required
             </mat-error>
@@ -18,7 +19,7 @@
     </mat-dialog-content>
 
     <mat-dialog-actions>
-        <button type="button" mat-raised-button (click)="close()">Close</button>
-        <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Save</button>
+        <button type="button" mat-button (click)="close()">CLOSE</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">SAVE</button>
     </mat-dialog-actions>
 </form>

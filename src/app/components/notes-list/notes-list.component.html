@@ -1,5 +1,5 @@
-<div class="empty-list" *ngIf="notes.length === 0">
-    You have not entered any notes yet
+<div class="empty-list-message-container" *ngIf="notes.length === 0">
+    <p>You have not entered any notes yet</p>
 </div>
 <div class="notes-list" *ngIf="notes.length > 0">
     <mat-action-list>

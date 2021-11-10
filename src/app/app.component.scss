@@ -1,4 +1,7 @@
-:host {
+.app-container {
     display: block;
-    margin: 1rem;
+    padding: 0.5rem;
+    background: #fafafa;
+    height: 80vh;
+    overflow-y: auto;
 }
