@@ -1,6 +1,6 @@
 # Notes
 
-This is a simple web app to keep notes with PWA support.
+This is a simple notes web app with PWA support.
 
 ## Development server
 
