@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "preprod:run": "http-server dist/notes"
+    "preprod": "http-server dist/notes"
   },
   "private": true,
   "dependencies": {
