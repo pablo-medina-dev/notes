@@ -1,21 +1,13 @@
-<h1 mat-dialog-title>Edit Note</h1>
-
 <form [formGroup]="form" (ngSubmit)="save()">
     <mat-dialog-content>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="standard">
             <mat-label>Title</mat-label>
             <input matInput placeholder="Enter title" formControlName="title" autocomplete="off">
             <mat-error *ngIf="form.hasError('required', 'username')">
                 Please enter a title
             </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Content</mat-label>
-            <textarea cdkTextareaAutosize matInput placeholder="Your note" formControlName="content" autocomplete="off"></textarea>
-            <mat-error *ngIf="form.hasError('required', 'username')">
-                Content is required
-            </mat-error>
-        </mat-form-field>
+        <angular-editor formControlName="content" [config]="editorConfig"></angular-editor>
     </mat-dialog-content>
 
     <mat-dialog-actions>

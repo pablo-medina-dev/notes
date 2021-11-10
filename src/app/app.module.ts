@@ -20,6 +20,8 @@ import { environment } from '../environments/environment';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MaterialElevationDirective } from './directives/material-elevation.directive';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { MaterialElevationDirective } from './directives/material-elevation.dire
     MatCardModule,
     MatSnackBarModule,
     MatToolbarModule,
+    AngularEditorModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
