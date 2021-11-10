@@ -1,0 +1,23 @@
+:host {
+    display: block;
+}
+
+.note-card:first-child {
+    margin: 0;
+}
+
+.note-card {
+    margin: 1rem 0;
+    background-color: #fbfbfb;
+    .actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}
+
+.notes-fab {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+}

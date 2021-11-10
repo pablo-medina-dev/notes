@@ -1,7 +1,18 @@
-<p>Notes</p>
+<mat-action-list>
+    <mat-card class="note-card" *ngFor="let note of notes" color="primary">
+        <mat-card-title>{{note.title}}</mat-card-title>
+        <mat-card-content>{{note.content}}</mat-card-content>
+        <mat-card-actions class="actions">
+            <button mat-button (click)="editNote(note)">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-button (click)="deleteNote(note)" color="warn">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
 
-<mat-selection-list>
-    <mat-list-option *ngFor="let note of notes" (click)="show(note)">
-        {{note.title}}
-    </mat-list-option>
-</mat-selection-list>
+    <button mat-fab class="notes-fab" color="accent" aria-label="Add Note" (click)="addNote()">
+        <mat-icon>add</mat-icon>
+    </button>
+</mat-action-list>
