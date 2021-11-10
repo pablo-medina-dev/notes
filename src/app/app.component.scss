@@ -2,6 +2,17 @@
     display: block;
     padding: 0.5rem;
     background: #fafafa;
-    height: 80vh;
+    height: 86vh;
     overflow-y: auto;
+}
+
+.footer {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    right: 3vh;
+    height: 5vh;
+    background-color: #fafafa;
+    filter: blur(8px);
+    z-index: 0;
 }

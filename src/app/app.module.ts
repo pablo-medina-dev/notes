@@ -19,12 +19,14 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MaterialElevationDirective } from './directives/material-elevation.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesListComponent,
-    EditNoteDialogComponent
+    EditNoteDialogComponent,
+    MaterialElevationDirective
   ],
   entryComponents: [
     EditNoteDialogComponent
