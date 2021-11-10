@@ -1,6 +1,10 @@
 # Notes
 
-This is a simple notes web app with PWA support.
+This is a simple notes web app.
+
+## Features
+- Angular 8
+- PWA support
 
 ## Development server
 
