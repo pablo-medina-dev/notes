@@ -1,23 +1,29 @@
-<div class="empty-list-message-container" *ngIf="notes.length === 0">
-    <p>You have not entered any notes yet</p>
-</div>
-<div class="notes-list" *ngIf="notes.length > 0">
-    <mat-action-list>
-        <mat-card class="note-card" *ngFor="let note of notes" color="primary" materialElevation>
-            <mat-card-title>{{note.title}}</mat-card-title>
-            <mat-card-content><span [innerHTML]="note.content"></span></mat-card-content>
-            <mat-card-actions class="actions">
-                <button mat-button (click)="editNote(note)">
-                    <mat-icon>edit</mat-icon>
-                </button>
-                <button mat-button (click)="deleteNote(note)" color="warn">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </mat-card-actions>
-        </mat-card>
-    </mat-action-list>
-</div>
+<mat-toolbar color="primary">
+    <span>Notes</span>
+</mat-toolbar>
+<div class="view-content">
+    <div class="empty-list-message-container" *ngIf="notes.length === 0">
+        <p>You have not entered any notes yet</p>
+    </div>
+    <div class="notes-list" *ngIf="notes.length > 0">
+        <mat-action-list>
+            <mat-card (click)="editNote(note)" class="note-card" *ngFor="let note of notes" color="primary" materialElevation>
+                <mat-card-title>{{note.title}}</mat-card-title>
+                <mat-card-content>
+                    <div class="card-content" [innerHTML]="note.content"></div>
+                </mat-card-content>
+                <mat-divider inset></mat-divider>
+                <mat-card-actions class="actions">
+                    <button mat-button (click)="editNote(note)">EDIT</button>
+                    <button mat-button (click)="deleteNote(note)" color="warn">DELETE</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-action-list>
+    </div>
 
-<button mat-fab class="notes-fab" color="accent" aria-label="Add Note" (click)="addNote()">
-    <mat-icon>add</mat-icon>
-</button>
+    <button mat-fab class="notes-fab" color="accent" aria-label="Add Note" (click)="addNote()">
+        <mat-icon>add</mat-icon>
+    </button>
+
+    <div class="footer"></div>
+</div>

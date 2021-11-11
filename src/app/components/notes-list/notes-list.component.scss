@@ -2,6 +2,12 @@
     display: block;
 }
 
+.view-content {
+    padding: 1rem;
+    height: 82vh;
+    overflow-y: auto;
+}
+
 .empty-list-message-container {
     display: flex;
     flex-direction: column;
@@ -16,9 +22,7 @@
 }
 
 .notes-list {
-    display: flex;
-    align-items: flex-start;
-    width: 100%;
+    display: block;
     flex-grow: 1;
 }
 
@@ -37,7 +41,7 @@
     .actions {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: flex-start;
     }
 }
 
@@ -46,4 +50,15 @@
     right: 2rem;
     bottom: 2rem;
     z-index: 2;
+}
+
+.footer {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    right: 3vh;
+    height: 5vh;
+    background-color: #fafafa;
+    filter: blur(8px);
+    z-index: 0;
 }

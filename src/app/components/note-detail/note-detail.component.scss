@@ -1,0 +1,28 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.note-detail {
+    flex-grow: 1;
+    padding: 1rem;
+
+    .title-row {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.content-editor {
+    background: red !important;
+    .angular-editor-toolbar {
+        background: blue !important;
+    }
+}
+
+.full-width {
+    width: 100%;
+}

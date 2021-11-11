@@ -9,7 +9,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { EditNoteDialogComponent } from './components/edit-note-dialog/edit-note-dialog.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
@@ -22,16 +21,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MaterialElevationDirective } from './directives/material-elevation.directive';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { HttpClientModule } from '@angular/common/http';
+import { NoteDetailComponent } from './components/note-detail/note-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesListComponent,
-    EditNoteDialogComponent,
-    MaterialElevationDirective
-  ],
-  entryComponents: [
-    EditNoteDialogComponent
+    MaterialElevationDirective,
+    NoteDetailComponent
   ],
   imports: [
     BrowserModule,

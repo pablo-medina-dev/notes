@@ -1,32 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
+import { NoteService } from 'src/app/services/note.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { Note, NoteRecord } from 'src/interfaces/Note';
-import { EditNoteDialogComponent } from '../edit-note-dialog/edit-note-dialog.component';
-
-const buildRecords = (notes: Note[]): NoteRecord[] => {
-  const records: NoteRecord[] = [];
-  let i = 0;
-  notes.forEach(note => {
-    records.push({
-      id: ++i,
-      title: note.title,
-      content: note.content
-    });
-  });
-  return records;
-}
-
-const exportRecords = (records: NoteRecord[]): Note[] => {
-  const notes: Note[] = [];
-  records.forEach(record => {
-    notes.push({
-      title: record.title,
-      content: record.content
-    });
-  });
-  return notes;
-}
 
 @Component({
   selector: 'app-notes-list',
@@ -37,78 +15,47 @@ export class NotesListComponent implements OnInit {
   notes: NoteRecord[] = [];
   private lastId = 0;
 
-  constructor(private dialog: MatDialog, private storageService: StorageService, private snackbar: MatSnackBar) { }
+  constructor(private router: Router, private snackbar: MatSnackBar, private dataService: DataService, private noteService: NoteService) { }
 
   async ngOnInit() {
-    await this.fetchNotes();
+    await this.updateView();
   }
 
-  async fetchNotes() {
-    return this.storageService.getNotes()
+  async updateView() {
+    return this.noteService.getNotes()
       .then(notes => {
-        this.notes = buildRecords(notes);
-        this.lastId = this.notes.length + 1;
-      })
-  }
-
-  async storeNotes() {
-    const notes = exportRecords(this.notes);
-    return this.storageService.setNotes(notes);
+        this.notes = [...notes];
+      });
   }
 
   addNote() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = false;
-    dialogConfig.autoFocus = true;
-    dialogConfig.data = {
+    const data: NoteRecord = {
+      id: 0,
       title: '',
       content: ''
     }
-
-    const dialogRef = this.dialog.open(EditNoteDialogComponent, dialogConfig);
-
-    dialogRef.afterClosed().subscribe((newNote: NoteRecord | undefined) => {
-      if (newNote) {
-        this.notes.push({
-          id: this.lastId++,
-          title: newNote.title,
-          content: newNote.content
-        });
-        this.storeNotes().then(() => { this.showMessage('Note added') });
-      }
-    });
+    this.dataService.setNote(data);
+    this.router.navigate(['/edit']);
   }
 
   editNote(noteToEdit: NoteRecord) {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = false;
-    dialogConfig.autoFocus = true;
-    dialogConfig.data = {
+    const data = {
       id: noteToEdit.id,
       title: noteToEdit.title,
       content: noteToEdit.content
     }
-
-    const dialogRef = this.dialog.open(EditNoteDialogComponent, dialogConfig);
-
-    dialogRef.afterClosed().subscribe((updatedNote: NoteRecord | undefined) => {
-      if (updatedNote) {
-        const noteToUpdate = this.notes.find(note => note.id === noteToEdit.id);
-        if (noteToUpdate) {
-          noteToUpdate.title = updatedNote.title;
-          noteToUpdate.content = updatedNote.content;
-          this.storeNotes().then(() => { this.showMessage('Note updated') });
-        }
-      }
-    });
+    this.dataService.setNote(data);
+    this.router.navigate(['/edit']);
   }
 
   deleteNote(noteToDelete: NoteRecord) {
-    const indexToDelete = this.notes.findIndex(note => note.id == noteToDelete.id);
-    if (indexToDelete >= 0) {
-      this.notes.splice(indexToDelete, 1);
-      this.storeNotes().then(() => { this.showMessage('Note deleted') });
-    }
+    this.noteService.deleteRecord(noteToDelete)
+      .then(() => {
+        this.updateView()
+          .then(() => {
+            this.showMessage('Note deleted')
+          });
+      });
   }
 
   showMessage(message: string) {

@@ -1,0 +1,17 @@
+<div class="note-detail">
+    <form [formGroup]="form" (ngSubmit)="save()">
+        <div class="title-row">
+            <button type="submit" mat-button color="primary">
+                <mat-icon>keyboard_backspace</mat-icon>
+            </button>
+            
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Enter title" formControlName="title" autocomplete="off">
+                <mat-error *ngIf="form.hasError('required', 'username')">
+                    Please enter a title
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <angular-editor autofocus class="content-editor" formControlName="content" [config]="editorConfig"></angular-editor>
+    </form>
+</div>
