@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1636873949124,
+  "timestamp": 1636909867592,
   "index": "https://pablo-medina-dev.github.io/notes/index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "https://pablo-medina-dev.github.io/notes/favicon.ico",
         "https://pablo-medina-dev.github.io/notes/index.html",
-        "https://pablo-medina-dev.github.io/notes/main-es2015.139d46f387cd32c14e7d.js",
-        "https://pablo-medina-dev.github.io/notes/main-es5.139d46f387cd32c14e7d.js",
+        "https://pablo-medina-dev.github.io/notes/main-es2015.c3d5aa6e332b14a1ad03.js",
+        "https://pablo-medina-dev.github.io/notes/main-es5.c3d5aa6e332b14a1ad03.js",
         "https://pablo-medina-dev.github.io/notes/manifest.webmanifest",
         "https://pablo-medina-dev.github.io/notes/polyfills-es2015.ffa9bb4e015925544f91.js",
         "https://pablo-medina-dev.github.io/notes/polyfills-es5.0290b245fbcca09184ac.js",
@@ -49,9 +49,9 @@
     "https://pablo-medina-dev.github.io/notes/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://pablo-medina-dev.github.io/notes/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://pablo-medina-dev.github.io/notes/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://pablo-medina-dev.github.io/notes/index.html": "b88c98ecc8f676ad5790f506789b4e12eafcdc21",
-    "https://pablo-medina-dev.github.io/notes/main-es2015.139d46f387cd32c14e7d.js": "86161608de297e4475f9e5260f94fad4b70ea695",
-    "https://pablo-medina-dev.github.io/notes/main-es5.139d46f387cd32c14e7d.js": "f10f7b4af09c0f03312c664f7aea622acdf1c36d",
+    "https://pablo-medina-dev.github.io/notes/index.html": "977da400ec3f2e79a8f5281ca842ec9ddd30e469",
+    "https://pablo-medina-dev.github.io/notes/main-es2015.c3d5aa6e332b14a1ad03.js": "5b6521574ebd88aacd61c49e7c596876e6086538",
+    "https://pablo-medina-dev.github.io/notes/main-es5.c3d5aa6e332b14a1ad03.js": "6225629cea5eff004b648be20a15c4b8b6cbe930",
     "https://pablo-medina-dev.github.io/notes/manifest.webmanifest": "8f2021b0fc3c401cb9a72c6a6dc8cccb45e7c3a4",
     "https://pablo-medina-dev.github.io/notes/polyfills-es2015.ffa9bb4e015925544f91.js": "79b2ff5ba292ae9e56f0b43982b9e76d9ddcf285",
     "https://pablo-medina-dev.github.io/notes/polyfills-es5.0290b245fbcca09184ac.js": "30bc145a13b70cbe122badf8d01807595a4429c8",
