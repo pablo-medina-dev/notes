@@ -28,6 +28,10 @@ export class NotesListComponent implements OnInit {
       });
   }
 
+  textChange(text: string) {
+    console.log(text);
+  }
+
   addNote() {
     const data: NoteRecord = {
       id: 0,

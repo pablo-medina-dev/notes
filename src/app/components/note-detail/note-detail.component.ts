@@ -49,7 +49,7 @@ export class NoteDetailComponent implements OnInit {
     this.form = this.fb.group({
       id: [0],
       title: [''],
-      content: ['', Validators.required]
+      content: ['Your note', Validators.required]
     });
   }
 

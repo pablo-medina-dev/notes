@@ -22,13 +22,15 @@ import { MaterialElevationDirective } from './directives/material-elevation.dire
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { HttpClientModule } from '@angular/common/http';
 import { NoteDetailComponent } from './components/note-detail/note-detail.component';
+import { RichTextEditorComponent } from './components/rich-text-editor/rich-text-editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesListComponent,
     MaterialElevationDirective,
-    NoteDetailComponent
+    NoteDetailComponent,
+    RichTextEditorComponent
   ],
   imports: [
     BrowserModule,
