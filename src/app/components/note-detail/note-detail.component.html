@@ -1,18 +1,15 @@
 <div class="note-detail">
     <form [formGroup]="form" (ngSubmit)="save()">
         <div class="title-row">
-            <button type="submit" mat-button color="primary">
+            <button class="button-back" type="submit" mat-icon-button color="primary">
                 <mat-icon>keyboard_backspace</mat-icon>
             </button>
 
-            <mat-form-field class="full-width">
-                <input matInput placeholder="Enter title" formControlName="title" autocomplete="off">
-                <mat-error *ngIf="form.hasError('required', 'username')">
-                    Please enter a title
-                </mat-error>
+            <mat-form-field class="title-field" appearance="fill">
+                <mat-label>Title (optional)</mat-label>
+                <input matInput formControlName="title" autocomplete="off">
             </mat-form-field>
         </div>
         <rich-text-editor formControlName="content" placeholder="Your note"></rich-text-editor>
-        <!--<angular-editor autofocus class="content-editor" formControlName="content" [config]="editorConfig"></angular-editor>-->
     </form>
 </div>
