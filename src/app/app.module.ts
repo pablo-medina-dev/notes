@@ -23,6 +23,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { HttpClientModule } from '@angular/common/http';
 import { NoteDetailComponent } from './components/note-detail/note-detail.component';
 import { RichTextEditorComponent } from './components/rich-text-editor/rich-text-editor.component';
+import { RichTextViewerComponent } from './components/rich-text-viewer/rich-text-viewer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RichTextEditorComponent } from './components/rich-text-editor/rich-text
     NotesListComponent,
     MaterialElevationDirective,
     NoteDetailComponent,
-    RichTextEditorComponent
+    RichTextEditorComponent,
+    RichTextViewerComponent
   ],
   imports: [
     BrowserModule,

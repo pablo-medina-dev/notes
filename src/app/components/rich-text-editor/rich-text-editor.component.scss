@@ -1,0 +1,19 @@
+.rich-text-editor {
+    display: flex;
+    flex-direction: column;
+
+    .editor-wrapper {
+        border: 1px solid transparent;
+        margin: 0 1rem;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        word-break: keep-all;;
+    }
+}
+
+::ng-deep .ce-block__content,
+::ng-deep .ce-toolbar__content {
+    max-width: unset;
+}
